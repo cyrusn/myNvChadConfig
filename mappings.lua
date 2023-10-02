@@ -38,4 +38,10 @@ M.buffer = {
   },
 }
 
+M.update = {
+  n = {
+    ['<leader>u'] = { ":NvChadUpdate<CR>", "Update NvChad" }
+  }
+}
+
 return M

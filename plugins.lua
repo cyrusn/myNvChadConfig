@@ -40,6 +40,9 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
+    config = function()
+      require("notify").setup()
+    end,
     opts = {
       ensure_installed = {
         "css-lsp",
@@ -66,6 +69,7 @@ local plugins = {
   },
   {
     "rcarriga/nvim-notify",
+    event = "VeryLazy",
     opts = {
       render = "wrapped-compact",
       max_width = 50,
