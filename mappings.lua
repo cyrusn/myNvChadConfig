@@ -30,9 +30,7 @@ M.movelines = {
 M.buffer = {
   n = {
     ["<leader>X"] = {
-      function()
-        require("nvchad.tabufline").closeAllBufs()
-      end,
+      ":w | %bd | e# | NvimTreeFocus <CR> ",
       "Close all buffers",
     },
   },
@@ -40,8 +38,8 @@ M.buffer = {
 
 M.update = {
   n = {
-    ['<leader>u'] = { ":NvChadUpdate<CR>", "Update NvChad" }
-  }
+    ["<leader>u"] = { ":NvChadUpdate<CR>", "Update NvChad" },
+  },
 }
 
 return M

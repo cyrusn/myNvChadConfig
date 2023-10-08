@@ -8,7 +8,17 @@ local lint = null_ls.builtins.diagnostics
 local sources = {
   formatting.prettier,
   formatting.stylua,
-
+  lint.flake8,
+  formatting.black,  -- Python Formatter
+  formatting.djlint.with({
+    extra_args = function()
+      return {
+        "--indent",
+        "2",
+        "--preserve-blank-lines",
+      }
+    end,
+  }),
   lint.shellcheck,
 }
 

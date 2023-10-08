@@ -1,4 +1,19 @@
+local overrides = require "custom.configs.overrides"
+
 local plugins = {
+  {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    opts = overrides.nvimtree,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -39,28 +54,12 @@ local plugins = {
     end,
   },
   {
-    "williamboman/mason.nvim",
-    config = function()
-      require("notify").setup()
-    end,
-    opts = {
-      ensure_installed = {
-        "css-lsp",
-        "html-lsp",
-        "lua-language-server",
-        "prettier",
-        "stylua",
-        "typescript-language-server",
-      },
-    },
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      cmdline = {
-        view = "cmdline",
-      },
+      cmdline = { view = "cmdline" },
+      messages = { view = "mini" },
+      notify = { view = "mini" },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -76,25 +75,11 @@ local plugins = {
     },
   },
   {
-    "nvim-tree/nvim-tree.lua",
-    lazy = false,
-    opts = {
-      renderer = {
-        highlight_git = true,
-        indent_markers = {
-          enable = true,
-        },
-        icons = {
-          show = {
-            git = true,
-          },
-        },
-      },
-      git = {
-        enable = true,
-        ignore = false,
-      },
-    },
+    "max397574/better-escape.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup()
+    end,
   },
 }
 
