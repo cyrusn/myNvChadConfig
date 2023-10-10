@@ -6,9 +6,11 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
+  lint.flake8,
+
+
   formatting.prettier,
   formatting.stylua,
-  lint.flake8,
   formatting.black,  -- Python Formatter
   formatting.djlint.with({
     extra_args = function()

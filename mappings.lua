@@ -1,5 +1,19 @@
 local M = {}
 
+M.remap = {
+  n = {
+    ["<C-d>"] = { "<C-d>zz", "Move half page down" },
+    ["<C-u>"] = { "<C-u>zz", "Move half page up" },
+    ["<C-s>"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+        vim.api.nvim_command "write"
+      end,
+      "Format and save",
+    },
+  },
+}
+
 M.mason = {
   n = {
     ["<leader>ms"] = { ":Mason <CR>", "Mason" },

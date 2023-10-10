@@ -40,11 +40,11 @@ M.nvimtree = {
     indent_markers = {
       enable = true,
     },
-    -- icons = {
-    --   show = {
-    --     git = true,
-    --   },
-    -- },
+    icons = {
+      show = {
+        git = true,
+      },
+    },
   },
 }
 

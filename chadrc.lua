@@ -8,8 +8,8 @@ end
 M.ui = {
   theme = "catppuccin",
   statusline = {
+    -- theme = "vscode_colored",
     theme = "default",
-    -- theme = "minimal",
     overriden_modules = function(modules)
       local status = (function()
         -- return 'hello'
@@ -20,16 +20,16 @@ M.ui = {
         local mode_msg = mode_cond and status.mode.get_hl() .. " " or ""
         local command_msg = command_cond and status.command.get_hl() .. " " or ""
 
-        return "- " .. mode_msg .. command_msg .. "-"
-      end)()
-
-      local fileType = (function()
-        local ft = vim.bo[stbufnr()].ft
-        return ft == "" and "· plain text " or "{" .. ft .. "} "
+        return mode_msg .. command_msg 
       end)()
 
       table.insert(modules, 7, status)
-      table.insert(modules, 11, fileType)
+      local fileType = (function()
+        local ft = vim.bo[stbufnr()].ft
+        return ft == "" and " {plain text} " or "{" .. ft .. "} "
+      end)()
+
+      table.insert(modules, 10, fileType)
 
       return modules
     end,

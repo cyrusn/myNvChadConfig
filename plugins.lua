@@ -57,7 +57,9 @@ local plugins = {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      cmdline = { view = "cmdline" },
+      cmdline = {
+        view = "cmdline",
+      },
       messages = { view = "mini" },
       notify = { view = "mini" },
     },
@@ -73,13 +75,6 @@ local plugins = {
       render = "wrapped-compact",
       max_width = 50,
     },
-  },
-  {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
   },
 }
 
