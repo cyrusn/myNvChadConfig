@@ -36,8 +36,8 @@ M.movelines = {
     ["<A-j>"] = { "<Esc>:m .+1<CR>==gi", "Move current line up" },
   },
   v = {
-    ["<c-j>"] = { ":m '>+1<CR>gv=gv", "Move current line down" },
-    ["<c-k>"] = { ":m '<-2<CR>gv=gv", "Move current line down" },
+    ["<A-k>"] = { ":m '<-2<CR>gv=gv", "Move current line down" },
+    ["<A-j>"] = { ":m '>+1<CR>gv=gv", "Move current line down" },
   },
 }
 
